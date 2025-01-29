@@ -3,32 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoginPage</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styleL.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #121420;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content h2 {
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .content label {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .content input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f7fafc;
+            transition: border 0.3s;
+        }
+
+        .content input:focus {
+            border: 1px solid #4e54b6;
+            outline: none;
+        }
+
+        .content button {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: #4e54b6;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .content button:hover {
+            background: #383fb2;
+        }
+
+        .content a {
+            color: #4e54b6;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .form-image {
+            flex: 1;
+            background: #e7e7ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .form-image img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="login-form">
-        <h1>Login</h1>
-        <div class="container">
-            <div class="main">
-                <div class="content">
-                    <h2>Student Log in</h2>
-                    <form action="#" th:action="@{/login}" method="post">
-                        <pre>
-                        User Name:<input type="text" name="email"/>
-                        Password:<input type="password" name="password"/>
-                        <input type="submit" value="login"/>
-                         <a href="showReg">Register</a>
-                         
-                        </pre>
-                        </form>
-                </div>
-                <div class="form-image">
-                    <img src="login (1).png" alt="">
-                 </div>
-            </div>
-            
+        <div class="content">
+            <h2>Student Log in</h2>
+            <form action="#" th:action="@{/login}" method="post">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+
+                <button type="submit">Login</button>
+                <a href="showReg">Register</a>
+            </form>
+        </div>
+        <div class="form-image">
+            <img src="login.png" alt="Login Illustration">
         </div>
     </div>
 </body>
 </html>
+

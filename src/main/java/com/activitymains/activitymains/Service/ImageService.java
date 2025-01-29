@@ -9,4 +9,6 @@ public interface ImageService {
     public Image create(Image image);
     public Image viewByid(long id);
     public Image findByUsername(String username);
+
+    public String getUserDetails();
 }

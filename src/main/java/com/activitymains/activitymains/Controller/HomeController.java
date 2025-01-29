@@ -6,12 +6,14 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.List;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -93,12 +95,17 @@ public class HomeController {
 
         eventService.addEvent(event);
     
-        return "Events";
+        return "Success";
     }
 
     @GetMapping("/")
     public String HomePage(){
             return "login";
+    }
+
+    @GetMapping("/home")
+    public String HomeP(){
+            return "index";
     }
 
     @PostMapping("/login")
@@ -110,13 +117,33 @@ public class HomeController {
         return "login";
     }
 
+    // @GetMapping("/Profile")
+    // public String Profile(Model model,Authentication authentication){
+    //     String email = authentication.getName();
+    //     Image image = imageService.findByUsername(email);
+    //     model.addAttribute(email, image.getEmail());
+    //     return "Profile";
+    // }
+
     @GetMapping("/Profile")
-    public String Profile(Model model,Authentication authentication){
-        String email = authentication.getName();
-        Image image = imageService.findByUsername(email);
-        model.addAttribute(email, image.getEmail());
-            return "Profile";
+    public String helloGfg(Principal principal, Authentication auth, Model model) {
+        String userName = principal.getName();
+        System.out.println("Current Logged in User is: " + userName);
+    
+        // Simulate fetching user details from a service
+        Image user = imageService.findByUsername(userName);
+
+        System.out.println("Current Logged in User is: " + user.getPhoneNo());
+    
+        // Add data to the model
+        model.addAttribute("userName", user.getUsername());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("phoneNo", user.getPhoneNo());
+        
+    
+        return "Profile";
     }
+    
     @GetMapping("/Login")
     public String Login(){
             return "Login";

@@ -264,14 +264,14 @@ a.active,a:hover{
 
 .box{
     margin-top: 15px;
-    height: 475px;
+    height: 500px;
     width: 23%;
     background-color: white;
     padding: 20px 0px 15px;
 }
 
 .box-img{
-    height: 350px;
+    height: 380px;
     background-size: cover;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -352,39 +352,40 @@ footer{
             <li><a href="/Events">Events</a></li>
             <li><a href="/Profile">Profile</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="/Login">Login</a></li>
-            <li><a href="/Register">Register</a></li>
-            <li><a href="/AdminLogin">Admin Login</a></li>
         </ul>
     </nav>
 
     <!-- image slider -->
 
-    <section id="section1">
-
-        <svg  id="header_bg" class="homebg" viewBox="0 0 500 80" preserveAspectRatio="none">
+    <section id="section1" style="position: relative; text-align: center; color: white; background: linear-gradient(135deg, #07365d, #000717); padding: 100px 20px; overflow: hidden;">
+        <svg id="header_bg" class="homebg" viewBox="0 0 500 80" preserveAspectRatio="none" style="width: 100%; height: auto;">
             <defs>
                 <radialGradient id="Gradient" cx="0.5" cy="0.5" r="0.5" fx="0.75" fy="0.25">
-                    <stop offset="0%" stop-color="#07365d"/>
-                    <stop offset="100%" stop-color="#000717"/>
+                    <stop offset="0%" stop-color="#07365d" />
+                    <stop offset="100%" stop-color="#000717" />
                 </radialGradient>
             </defs>
-            <path d="M0,0 L0,55 Q250,65 500,55 L500,0 Z" fill="url(#Gradient)"/><!--fill="#e2fafa"-->
+            <path d="M0,0 L0,55 Q250,65 500,55 L500,0 Z" fill="url(#Gradient)" />
         </svg>
-        >
-        <div className='title'>
-            <h1>Walchand Institute of Tecnhology <br/>Exclence beyond classroom</h1>
-            <p>
-                <span>"Your greatness is <br/>not what you have. <br />it's what you give"<br/></span>
+        <div class="title" style="position: relative; z-index: 1; max-width: 800px; margin: 0 auto;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; line-height: 1.5; text-transform: uppercase; margin-bottom: 20px;">
+                Walchand Institute of Technology
+                <br />
+                Excellence Beyond Classroom
+            </h1>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px;">
+                <span>"Your greatness is <br /> not what you have, <br /> it's what you give."</span>
             </p>
-        
+            <button style="padding: 10px 20px; font-size: 1rem; background-color: #373e61; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Learn More</button>
+            <button style="padding: 10px 20px; font-size: 1rem; background-color: #007185; color: white; border: none; border-radius: 5px; cursor: pointer;">Join Now</button>
         </div>
     </section>
+    
     
     <div class="event-section">
         <div class="box" >
             <div class="box-content">
-                <h2>Name of the Event</h2>
+                <h2>Witchar 2k24</h2>
                 <div class="box-img" style="background-image: url('pos1.jpg');">
                
                 </div>
@@ -392,17 +393,18 @@ footer{
             <Button class="btn">Explore</Button>
             </div>
         </div>
-        <div class="box"><div class="box-content">
-            <h2>Name of the Event</h2>
-            <div class="box-img" style="background-image: url('pos1.jpg');">
-           
+        <div class="box">
+            <div class="box-content">
+                <h2>WiTech</h2>
+                <div class="box-img" style="background-image: url('Apti-Battle Draft-14 (1).png');">
+                </div>
+                <button class="btn">Register Now</button>
+                <button class="btn">Explore</button>
             </div>
-            <Button class="btn">Register Now</Button>
-            <Button class="btn">Explore</Button>
         </div>
-       </div>
+        
         <div class="box3 box"><div class="box-content">
-            <h2>Name of the Event</h2>
+            <h2>Atharva</h2>
             <div class="box-img" style="background-image: url('pos1.jpg');">
            
             </div>
@@ -410,8 +412,6 @@ footer{
             <Button class="btn">Explore</Button>
          </div>
         </div>
-        
-
 </div>
 
     <section id="footer-section">

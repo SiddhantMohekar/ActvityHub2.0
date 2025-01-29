@@ -6,52 +6,186 @@
     <title>Profile</title>
     <link rel="stylesheet" href="stylep.css">
 </head>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    
+ }
+
+ body{
+    font-family: 'poppins',sans-serif;
+    background-color: #121420;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+
+ .profile-details{
+    background-color: white;
+    margin-top: 150px;
+    height: 650px;
+    width: 1200px;
+    border-radius: 10px;
+    display: flex;
+ }
+
+ .block1{
+    height: 652px;
+    width: 350px;
+    background-color: #2b2d54;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+ }
+
+ .b1{
+    height: 650px;
+    width: 350px;
+ }
+
+ .b1 img{
+    margin-top: 100px;
+    margin-left: 52px;
+    height: 260px;
+    width: 260px;
+ }
+
+ .b1 h2{
+    color: white;
+    margin-top: 5px;
+    margin-left: 125px;
+ }
+
+ .b1 h4{
+    color: white;
+    margin-top: 5px;
+    margin-left: 145px;
+ }
+
+.block2{
+    padding: 30px;
+    
+}
+
+.block2 h1{
+    margin-top: -30px;
+}
+.info{
+    display: flex;   
+}
+.info h4{
+    margin-right: 490px;
+}
+.actual-info{
+    display: flex;
+}
+.actual-info p{
+    margin-right: 415px;
+}
+.certi-title{
+    margin-top: 100px;
+}
+
+table{
+    margin-top: 20px;
+    width: 50%;
+    border: 1px solid black;
+}
+
+
+input{
+    width: 300px;
+    height: 30px;
+    margin-right: 200px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+button{
+    height: 40px;
+    width: 90px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #2b2d54;
+    border-radius: 5px;
+    border: none;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2b2d54;
+    color: white;
+  }
+
+</style>
 <body>
-        <div class="profile-details">
-            <div class="block1">
-                <div class="b1">
-                    <img src="profile.png" alt="">
-                    <h2 th:text="${#authentication != null ? #authentication.name : 'Anonymous'}">Ravish</h2>
-                    <h4>year</h4>
-                </div>
-            </div>
-            <div class="block2">
-                <h2>Information</h2>
-                <h1>____________________</h1>
-                <div class="info">
-                    <h4>Email</h4>
-                    <h4>phone No</h4>
-                </div>    
-                <div class="actual-info" >
-                    <input name="email" id="email" th:text="${email}">
-                    <input type="text" name="Number" id="Number">
-                </div>
-                <div class="certi-title">
-                    <h2>Certificates</h2>
-                <h1>____________________</h1>
-                </div>
-                <table id="customers">
-                    <tr>
-                      <th>Name of event</th>
-                      <th>Date</th>
-                      <th>Certificate</th>
-                    </tr>
-                    <tr>
-                      <td>Alfreds Futterkiste</td>
-                      <td>Maria Anders</td>
-                      <td>Germany</td>
-                    </tr>
-                    <tr>
-                      <td>Centro comercial Moctezuma</td>
-                      <td>Francisco Chang</td>
-                      <td>Mexico</td>
-                    </tr>
-                  </table>
-                <div class="btn">
-                    <button type="button">ADD Details</button>
-                </div>
-                
+    <div class="profile-details">
+        <div class="block1">
+            <div class="b1">
+                <img src="profile.png" alt="Profile Picture">
+                <h2 th:text="${userName}">Default Name</h2>
+                <h4>Year</h4>
             </div>
         </div>
+        <div class="block2">
+            <h2>Information</h2>
+            <h1>____________________</h1>
+            <div class="info">
+                <h4>Email</h4>
+                <h4>Phone No</h4>
+            </div>    
+            <div class="actual-info">
+                <input name="email" id="email" th:value="${email}" readonly>
+                <input type="text" name="Number" id="Number" th:value="${phoneNo}" readonly>
+            </div>
+            <div class="certi-title">
+                <h2>Certificates</h2>
+                <h1>____________________</h1>
+            </div>
+            <!-- <table id="customers">
+                <thead>
+                    <tr>
+                        <th>Name of Event</th>
+                        <th>Date</th>
+                        <th>Certificate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="certificate : ${certificates}">
+                        <td th:text="${certificate.eventName}">Event Name</td>
+                        <td th:text="${certificate.date}">Date</td>
+                        <td>
+                            <a th:href="${certificate.certificateUrl}" target="_blank">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> -->
+            <div class="btn">
+                <button type="button">ADD Details</button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
