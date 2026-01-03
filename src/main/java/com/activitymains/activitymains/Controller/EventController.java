@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.activitymains.activitymains.Model.RegEvent;
 import com.activitymains.activitymains.Service.RegEventService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/Events")
 public class EventController{
@@ -23,7 +25,7 @@ public class EventController{
     }
 
     @PostMapping("/RegisterToEvent")
-    public String RegToEvent(@RequestBody RegEvent regEvent){
+    public String RegToEvent(@RequestBody @Valid RegEvent regEvent){
            regEventService.saveEvent(regEvent);
            return "Registered";
     }

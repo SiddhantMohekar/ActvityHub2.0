@@ -24,6 +24,11 @@ public class EventService {
         return event;
     }
 
+    public String deleteEvent(Long id){
+        eventRepository.deleteById(id);
+        return "Event Deleted Successfully";
+    }
+
     
     
 }

@@ -50,9 +50,12 @@ public class WebSecurityConfig {
     
         http.authorizeHttpRequests(authorize->authorize
         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-        .requestMatchers(HttpMethod.GET,"/Events","/index","/Profile","/login","/Register","/home","/AddDetails","/success").hasAnyRole("USER","ADMIN")
-        .requestMatchers(HttpMethod.POST, "/addEvent","/add","/addDetails","/success").hasRole("ADMIN")
-        .requestMatchers("/","/login","/index","/user-name").permitAll()
+        // allow anonymous POST to /add (registration submit)
+        .requestMatchers(HttpMethod.POST, "/add").permitAll()
+        .requestMatchers(HttpMethod.GET,"/Events","/index","/Profile","/login","/home","/AddDetails","/success","/AdminDashboard/deleteEvent/{id}").hasAnyRole("USER","ADMIN")
+        .requestMatchers(HttpMethod.GET,"/AdminDashboard").hasRole("ADMIN")
+        .requestMatchers(HttpMethod.POST, "/addEvent","/addDetails","/success").hasRole("ADMIN")
+        .requestMatchers("/","/login","/index","/user-name","/Register","/showReg").permitAll()
         );
         return http.build();
     }

@@ -13,6 +13,8 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user_profile")
@@ -23,7 +25,9 @@ public class Image {
     private long id;
      @Lob
     private Blob image;
+    @NotNull
     private String username;
+    @Email
     private String email;
     private String password;
     private String phoneNo;
